@@ -1,10 +1,30 @@
-[gd_resource type="Resource" script_class="Pokemon" load_steps=2 format=3 uid="uid://dg77nah6gaumr"]
+[gd_resource type="Resource" script_class="Pokemon" load_steps=7 format=3 uid="uid://dg77nah6gaumr"]
 
 [ext_resource type="Script" path="res://Pokemons/Pokemon.cs" id="1_edqa0"]
+[ext_resource type="Script" path="res://Pokemons/Stat.cs" id="1_urrum"]
+[ext_resource type="Script" path="res://Pokemons/Move.cs" id="2_2pipc"]
+
+[sub_resource type="Resource" id="Resource_lhagd"]
+script = ExtResource("1_urrum")
+stat = "Atk"
+baseAmount = 10
+
+[sub_resource type="Resource" id="Resource_35b3r"]
+script = ExtResource("1_urrum")
+stat = "Def"
+baseAmount = 10
+
+[sub_resource type="Resource" id="Resource_hk4v2"]
+script = ExtResource("2_2pipc")
+name = "Attacco"
+description = "Attacca un nemico per 10 danni"
+moves = Array[Object]([null])
 
 [resource]
 script = ExtResource("1_edqa0")
-name = ""
-hp = 0
+name = "Pickachu"
+hp = 100
+atk = SubResource("Resource_lhagd")
+def = SubResource("Resource_35b3r")
 status = 0
-moves = Array[Object]([null])
+moves = Array[Object]([SubResource("Resource_hk4v2")])
