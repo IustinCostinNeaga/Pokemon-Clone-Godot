@@ -14,11 +14,11 @@ script = ExtResource("1_urrum")
 stat = "Def"
 baseAmount = 10
 
-[sub_resource type="Resource" id="Resource_hk4v2"]
+[sub_resource type="Resource" id="Resource_6qxnj"]
 script = ExtResource("2_2pipc")
-name = "Attacco"
-description = "Attacca un nemico per 10 danni"
-moves = Array[Object]([null])
+name = "Attacco Rapido"
+description = ""
+moves = null
 
 [resource]
 script = ExtResource("1_edqa0")
@@ -27,4 +27,4 @@ hp = 100
 atk = SubResource("Resource_lhagd")
 def = SubResource("Resource_35b3r")
 status = 0
-moves = Array[Object]([SubResource("Resource_hk4v2")])
+moves = Array[Object]([SubResource("Resource_6qxnj")])

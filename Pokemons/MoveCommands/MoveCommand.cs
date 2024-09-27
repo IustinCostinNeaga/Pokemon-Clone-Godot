@@ -5,6 +5,5 @@ using static Pokemon;
 public partial class MoveCommand : Resource
 {
     [Export] private string name;
-
 }
 
