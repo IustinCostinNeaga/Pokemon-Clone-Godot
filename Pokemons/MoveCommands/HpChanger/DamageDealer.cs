@@ -2,7 +2,8 @@ using Godot;
 
 namespace PokemonMoltoBrutto.Pokemons.MoveCommands;
 
-public class DamageDealer
+[GlobalClass]
+public partial class DamageDealer : MoveCommand
 {
     [Export] private int damage;
 }
