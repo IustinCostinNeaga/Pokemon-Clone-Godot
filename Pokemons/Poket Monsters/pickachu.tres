@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Pokemon" load_steps=2 format=3 uid="uid://dg77nah6gaumr"]
+
+[ext_resource type="Script" path="res://Pokemons/Pokemon.cs" id="1_edqa0"]
+
+[resource]
+script = ExtResource("1_edqa0")
+name = ""
+hp = 0
+status = 0
+moves = Array[Object]([null])

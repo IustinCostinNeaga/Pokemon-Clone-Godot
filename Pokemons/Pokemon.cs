@@ -1,16 +1,18 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using Godot.Collections;
 
-public partial class Pokemon : Node
+[GlobalClass]
+public partial class Pokemon : Resource
 {
-	[Export] private String name;
-	[Export] private int hp;
-	[Export] private Stat atk;
-	[Export] private Stat def;git@github.com:IustinCostinNeaga/Pokemon-Clone-Godot.git
+	[Export] private string name {get; set;}
+	[Export] private int hp {get; set;}
+	[Export] private Stat atk {get; set;}
+	[Export(PropertyHint.ResourceType, "Stat")] private Stat def {get; set;}
 	[Export] private Status status = Status.None;
-	[Export] private List<Move> moves;
-	
+	[Export] private Array<Move> moves {get; set;}
+
 	public enum Status
 	{
 		None,
@@ -22,23 +24,3 @@ public partial class Pokemon : Node
 	}
 }
 
-public abstract partial class Stat : Node
-{
-	[Export] private String stat;
-	[Export] private int baseAmount;
-	[Export] private int actual;
-	[Export] private int statBoost;
-}
-
-public partial class Move : Node
-{
-	[Export] private String name;
-	[Export] private String description;
-	[Export] private List<Command> commands;
-}
-
-
-
-internal interface Command
-{
-}

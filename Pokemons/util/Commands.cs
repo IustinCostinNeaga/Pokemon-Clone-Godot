@@ -1,65 +1,80 @@
+using Godot;
 using static Pokemon;
 
-namespace PokemonMoltoBrutto.Pokemons.util;
-
-public interface MoveType {};
-
-public class DamageDealer : MoveType
+[GlobalClass]
+public partial class MoveCommand: Resource
 {
-    private int damage;
+    [Export] private string move;
+};
+
+[GlobalClass]
+public partial class DamageDealer : MoveCommand
+{
+    [Export] private int damage;
 }
 
-public class Healer : MoveType
+[GlobalClass]
+public partial class Healer : MoveCommand
 {
-    private int healAmount;
+    [Export] private int healAmount;
 }
 
-public class AttackBooster : MoveType
+[GlobalClass]
+public partial class AttackBooster : MoveCommand
 {
-    private int boostStages;
+    [Export] private int boostStages;
 }
 
-public class DefenceBooster : MoveType
+[GlobalClass]
+public partial class DefenceBooster : MoveCommand
 {
-    private int boostStages;
+    [Export] private int boostStages;
 }
 
-public class AttackBoosterEnemy : MoveType
+[GlobalClass]
+public partial class AttackBoosterEnemy : MoveCommand
 {
-    private int boostStages;
+    [Export] private int boostStages;
 }
 
-public class DefenceBoosterEnemy : MoveType
+[GlobalClass]
+public partial class DefenceBoosterEnemy : MoveCommand
 {
-    private int boostStages;
+    [Export] private int boostStages;
 }
 
-public class AttackLowerer : MoveType
+[GlobalClass]
+public partial class AttackLowerer : MoveCommand
 {
-    private int lowerAmount;
+    [Export] private int lowerAmount;
 }
 
-public class DefenceLowerer : MoveType
+[GlobalClass]
+public partial class DefenceLowerer : MoveCommand
 {
-    private int lowerAmount;
+    [Export] private int lowerAmount;
 }
 
-public class AttackLowererEnemy : MoveType
+[GlobalClass]
+public partial class AttackLowererEnemy : MoveCommand
 {
-    private int lowerAmount;
+    [Export] private int lowerAmount;
 }
 
-public class DefenceLowererEnemy : MoveType
+[GlobalClass]
+public partial class DefenceLowererEnemy : MoveCommand
 {
-    private int lowerAmount;
+    [Export] private int lowerAmount;
 }
 
-public class StatusChanger : MoveType
+[GlobalClass]
+public partial class StatusChanger : MoveCommand
 {
-    private Status status;
+    [Export] private Status status;
 }
 
-public class StatusChangerEnemy : MoveType
+[GlobalClass]
+public partial class StatusChangerEnemy : MoveCommand
 {
-    private Status status;
+    [Export] private Status status;
 }
