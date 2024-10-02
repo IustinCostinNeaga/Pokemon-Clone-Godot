@@ -5,6 +5,7 @@ using Godot.Collections;
 public partial class Pokemon : Resource
 {
 	[Export] private string name;
+	[Export] public Texture2D sprite;
 	[Export] private int hp;
 	[Export] private Stat atk;
 	[Export] private Stat def;

@@ -1,55 +1,52 @@
+using System;
+using System.Threading;
 using Godot;
+using Timer = Godot.Timer;
 
 public partial class Player : Node2D
 {
-    [Export]
-    private float speed = 4.0f;
-    
+    [Export] private float speed = 4.0f;
+
     private Vector2 direction = Vector2.Zero;
     private Vector2 currentPosition;
     private Vector2 nextPosition;
 
     private bool isMoving;
-    
+    private bool movementIsEnabled = true;
+
     private AnimationPlayer animationPlayer;
-    private TileMap tilemap;
+    private TileMapLayer tilemap;
     private Timer timer;
+    private Node thisNode;
 
     private float percentMoved = 0;
 
+    [Export] private Pokemon yourPokemon;
+
     public override void _Ready()
     {
-        animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+        animationPlayer = GetNode<AnimationPlayer>("PgAnimations");
         animationPlayer.Play("move_down");
-        tilemap = GetNode<TileMap>("../TileMap");
-        timer = GetNode<Timer>("../Timer");
+        tilemap = GetNode<TileMapLayer>("../WorldMap");
+        timer = GetNode<Timer>("PgAnimationTimer");
         timer.Start();
         currentPosition = Position;
+        thisNode = this;
     }
 
     public override void _Process(double delta)
     {
-        /*GD.Print("currentPosition                " + currentPosition);
-        GD.Print("position                       " + Position);
-        GD.Print("nextPosition                   " + nextPosition);
-        GD.Print("nextPosition - currentPosition " + (nextPosition - currentPosition));
-        GD.Print("currentPosition - nextPosition " + (currentPosition - nextPosition));
-        GD.Print("direction                      " + direction);
-        GD.Print("isMoving                       " + isMoving);
-        GD.Print("percentagePerFrame             " + (float)delta * speed);
-        GD.Print("percentage                     " + percentMoved);
-        GD.Print("");*/
-        
-        if (!isMoving)
+        if (movementIsEnabled)
         {
-            HandleInput();    
+            if (!isMoving)
+            {
+                HandleInput();
+            }
+            else
+            {
+                HandleMovement(delta);
+            }
         }
-        else
-        {
-            HandleMovement(delta);
-        }
-
-        
     }
 
     public void HandleMovement(double delta)
@@ -67,8 +64,6 @@ public partial class Player : Node2D
         {
             Position = currentPosition + (nextPosition - currentPosition) * percentMoved;
         }
-        
-        
     }
 
     private void HandleInput()
@@ -107,16 +102,16 @@ public partial class Player : Node2D
         {
             switch (direction)
             {
-                case (0,1):
+                case (0, 1):
                     animationPlayer.Play("idle_down");
                     break;
-                case (0,-1):
-                    animationPlayer.Play("idle_up"); 
+                case (0, -1):
+                    animationPlayer.Play("idle_up");
                     break;
-                case (-1,0):
+                case (-1, 0):
                     animationPlayer.Play("idle_left");
                     break;
-                case (1,0):
+                case (1, 0):
                     animationPlayer.Play("idle_right");
                     break;
             }
@@ -126,10 +121,26 @@ public partial class Player : Node2D
     private void selectNextTile(Vector2I direction)
     {
         var nextPosition = tilemap.LocalToMap((Position)) + direction;
-        var nextTile = tilemap.GetCellTileData(0, nextPosition);
+        var nextTile = tilemap.GetCellTileData(nextPosition);
         if (nextTile.GetCustomData("Walkable").AsBool())
         {
-                this.nextPosition = tilemap.MapToLocal(nextPosition);
+            this.nextPosition = tilemap.MapToLocal(nextPosition);
+        }
+
+        if (nextTile.GetCustomData("PokemonCanSpawn").AsBool())
+        {
+            var number = new Random().Next(0, 15);
+            if (number < 15 && !GetTree().Root.HasNode("BattleScreen"))
+            {
+                PackedScene scene = ResourceLoader.Load<PackedScene>("res://BattleScreen.tscn");
+                BattleScreen battleScreen = (BattleScreen)scene.Instantiate();
+                GetTree().Root.AddChild(battleScreen);
+                while (!battleScreen.IsNodeReady()) {}
+                battleScreen.instantiate(yourPokemon);
+                GetTree().Root.GetNode<Node2D>("Mondo").Hide();
+                movementIsEnabled = false;
+                GetTree().Root.PrintTreePretty();
+            }
         }
     }
 }

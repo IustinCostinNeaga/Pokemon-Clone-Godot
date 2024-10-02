@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Pokemon" load_steps=9 format=3 uid="uid://dew3gd2626i1i"]
+
+[ext_resource type="Script" path="res://Pokemons/Stat.cs" id="1_0w81e"]
+[ext_resource type="Script" path="res://Pokemons/Move.cs" id="2_6wqgx"]
+[ext_resource type="Script" path="res://Pokemons/Pokemon.cs" id="3_1g2sk"]
+[ext_resource type="Texture2D" uid="uid://38wc8hxlfrvp" path="res://Pokemons/PocketMonsters/Sprites/bulba.png" id="4_rb1nx"]
+
+[sub_resource type="Resource" id="Resource_lhagd"]
+script = ExtResource("1_0w81e")
+stat = "Atk"
+baseAmount = 10
+
+[sub_resource type="Resource" id="Resource_35b3r"]
+script = ExtResource("1_0w81e")
+stat = "Def"
+baseAmount = 10
+
+[sub_resource type="Resource" id="Resource_6qxnj"]
+script = ExtResource("2_6wqgx")
+name = "Attacco Rapido"
+description = ""
+priority = 0
+moves = null
+
+[sub_resource type="Resource" id="Resource_vj3q7"]
+script = ExtResource("1_0w81e")
+stat = "Spd"
+baseAmount = 10
+
+[resource]
+script = ExtResource("3_1g2sk")
+name = "Pickachu"
+sprite = ExtResource("4_rb1nx")
+hp = 100
+atk = SubResource("Resource_lhagd")
+def = SubResource("Resource_35b3r")
+spd = SubResource("Resource_vj3q7")
+status = 0
+moves = Array[Object]([SubResource("Resource_6qxnj")])
