@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpuqhupmj6078"]
+[gd_scene load_steps=4 format=3 uid="uid://cpuqhupmj6078"]
 
-[ext_resource type="Script" path="res://BattleScreen.cs" id="1_j125l"]
-[ext_resource type="Texture2D" uid="uid://cu3ns1sy81tbi" path="res://BackGround.jpg" id="1_qt2je"]
-[ext_resource type="Script" path="res://ChangeSceneOnClickSript.cs" id="2_62lvx"]
-[ext_resource type="PackedScene" uid="uid://gbg67jyq7m0f" path="res://OverWorld.tscn" id="3_nctto"]
-[ext_resource type="Texture2D" uid="uid://38wc8hxlfrvp" path="res://Pokemons/PocketMonsters/Sprites/bulba.png" id="5_cvg8e"]
+[ext_resource type="Script" path="res://Scripts/BattleScreen.cs" id="1_j125l"]
+[ext_resource type="Texture2D" uid="uid://cu3ns1sy81tbi" path="res://Images/BackGround.jpg" id="1_qt2je"]
+[ext_resource type="Texture2D" uid="uid://38wc8hxlfrvp" path="res://Scripts/Pokemons/PocketMonsters/Sprites/bulba.png" id="5_cvg8e"]
 
 [node name="BattleScreen" type="Node2D"]
 script = ExtResource("1_j125l")
@@ -18,8 +16,6 @@ offset = Vector2(256, 183)
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Torna Indietro"
-script = ExtResource("2_62lvx")
-scene = ExtResource("3_nctto")
 
 [node name="YourPokemon" type="Sprite2D" parent="."]
 position = Vector2(200, 450)

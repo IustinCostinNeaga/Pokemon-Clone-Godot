@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3ou5vs7s04qa"
-path="res://.godot/imported/squi.png-093a737874e9b71153c7f7e339575617.ctex"
+path="res://.godot/imported/squi.png-ae7e589b748da2a93c3ddcbd754870e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pokemons/PocketMonsters/Sprites/squi.png"
-dest_files=["res://.godot/imported/squi.png-093a737874e9b71153c7f7e339575617.ctex"]
+source_file="res://Scripts/Pokemons/PocketMonsters/Sprites/squi.png"
+dest_files=["res://.godot/imported/squi.png-ae7e589b748da2a93c3ddcbd754870e5.ctex"]
 
 [params]
 

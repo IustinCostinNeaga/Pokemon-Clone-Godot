@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="PokemonMoltoBrutto"
-run/main_scene="res://OverWorld.tscn"
+run/main_scene="res://StartingScene.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Images/icon.svg"
 
 [dotnet]
 

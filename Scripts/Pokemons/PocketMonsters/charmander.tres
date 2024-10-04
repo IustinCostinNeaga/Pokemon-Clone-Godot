@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Pokemon" load_steps=9 format=3 uid="uid://b87y0udx64c72"]
 
-[ext_resource type="Script" path="res://Pokemons/Stat.cs" id="1_dkuk8"]
-[ext_resource type="Script" path="res://Pokemons/Move.cs" id="2_c7agu"]
-[ext_resource type="Script" path="res://Pokemons/Pokemon.cs" id="3_d7v8v"]
-[ext_resource type="Texture2D" uid="uid://cwco4ryr4rr45" path="res://Pokemons/PocketMonsters/Sprites/char.png" id="4_isdo1"]
+[ext_resource type="Script" path="res://Scripts/Pokemons/Stat.cs" id="1_dkuk8"]
+[ext_resource type="Script" path="res://Scripts/Pokemons/Move.cs" id="2_c7agu"]
+[ext_resource type="Script" path="res://Scripts/Pokemons/Pokemon.cs" id="3_d7v8v"]
+[ext_resource type="Texture2D" uid="uid://cwco4ryr4rr45" path="res://Scripts/Pokemons/PocketMonsters/Sprites/char.png" id="4_isdo1"]
 
 [sub_resource type="Resource" id="Resource_lhagd"]
 script = ExtResource("1_dkuk8")

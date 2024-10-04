@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://38wc8hxlfrvp"
-path="res://.godot/imported/bulba.png-4706c3cdfe912f967a6da7b2133b8521.ctex"
+uid="uid://cu3ns1sy81tbi"
+path="res://.godot/imported/BackGround.jpg-a6d0e44f02ae2142142e2c5977702ede.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pokemons/PocketMonsters/Sprites/bulba.png"
-dest_files=["res://.godot/imported/bulba.png-4706c3cdfe912f967a6da7b2133b8521.ctex"]
+source_file="res://Images/BackGround.jpg"
+dest_files=["res://.godot/imported/BackGround.jpg-a6d0e44f02ae2142142e2c5977702ede.ctex"]
 
 [params]
 

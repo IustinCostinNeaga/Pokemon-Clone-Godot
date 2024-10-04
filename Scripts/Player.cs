@@ -6,6 +6,10 @@ using Timer = Godot.Timer;
 public partial class Player : Node2D
 {
     [Export] private float speed = 4.0f;
+    [Export] private Pokemon yourPokemon;
+
+    [Signal]
+    public delegate void ChangeToBattleSceneEventHandler(); 
 
     private Vector2 direction = Vector2.Zero;
     private Vector2 currentPosition;
@@ -17,21 +21,24 @@ public partial class Player : Node2D
     private AnimationPlayer animationPlayer;
     private TileMapLayer tilemap;
     private Timer timer;
-    private Node thisNode;
 
-    private float percentMoved = 0;
+    private float percentMoved;
+    private Camera2D camera;
 
-    [Export] private Pokemon yourPokemon;
 
     public override void _Ready()
     {
+        var eventHandler = GetTree().Root.GetNode<GodotEventHandler>("StartingScene");
+        eventHandler.Connect(GodotEventHandler.SignalName.ShowBattleScreen, new Callable(this, nameof(StopMovement)));
+        eventHandler.Connect(GodotEventHandler.SignalName.ShowWorldMap, new Callable(this, nameof(RestartMovement)));
+        
+        
         animationPlayer = GetNode<AnimationPlayer>("PgAnimations");
         animationPlayer.Play("move_down");
+        camera = GetNode<Camera2D>("PgCamera");
         tilemap = GetNode<TileMapLayer>("../WorldMap");
         timer = GetNode<Timer>("PgAnimationTimer");
         timer.Start();
-        currentPosition = Position;
-        thisNode = this;
     }
 
     public override void _Process(double delta)
@@ -130,17 +137,24 @@ public partial class Player : Node2D
         if (nextTile.GetCustomData("PokemonCanSpawn").AsBool())
         {
             var number = new Random().Next(0, 15);
-            if (number < 15 && !GetTree().Root.HasNode("BattleScreen"))
+            if (number < 15)
             {
-                PackedScene scene = ResourceLoader.Load<PackedScene>("res://BattleScreen.tscn");
-                BattleScreen battleScreen = (BattleScreen)scene.Instantiate();
-                GetTree().Root.AddChild(battleScreen);
-                while (!battleScreen.IsNodeReady()) {}
-                battleScreen.instantiate(yourPokemon);
-                GetTree().Root.GetNode<Node2D>("Mondo").Hide();
-                movementIsEnabled = false;
-                GetTree().Root.PrintTreePretty();
+                EmitSignal(SignalName.ChangeToBattleScene, yourPokemon);
             }
         }
     }
+
+    private void StopMovement()
+    {
+        movementIsEnabled = false;
+    }
+
+    private void RestartMovement()
+    {
+        movementIsEnabled = true;
+        camera.MakeCurrent();
+        
+    }
+    
+    
 }
