@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Pokemon" load_steps=9 format=3 uid="uid://dew3gd2626i1i"]
+[gd_resource type="Resource" script_class="Pokemon" load_steps=10 format=3 uid="uid://dew3gd2626i1i"]
 
 [ext_resource type="Script" path="res://Scripts/Pokemons/Stat.cs" id="1_0w81e"]
 [ext_resource type="Script" path="res://Scripts/Pokemons/Move.cs" id="2_6wqgx"]
+[ext_resource type="Texture2D" uid="uid://dbob4hk0h0b27" path="res://Scripts/Pokemons/PocketMonsters/Sprites/Back/bulba_back.png" id="2_ud6br"]
 [ext_resource type="Script" path="res://Scripts/Pokemons/Pokemon.cs" id="3_1g2sk"]
-[ext_resource type="Texture2D" uid="uid://38wc8hxlfrvp" path="res://Scripts/Pokemons/PocketMonsters/Sprites/bulba.png" id="4_rb1nx"]
+[ext_resource type="Texture2D" uid="uid://38wc8hxlfrvp" path="res://Scripts/Pokemons/PocketMonsters/Sprites/Front/bulba.png" id="4_rb1nx"]
 
 [sub_resource type="Resource" id="Resource_lhagd"]
 script = ExtResource("1_0w81e")
@@ -31,6 +32,7 @@ baseAmount = 10
 script = ExtResource("3_1g2sk")
 name = "Pickachu"
 sprite = ExtResource("4_rb1nx")
+backSprite = ExtResource("2_ud6br")
 hp = 100
 atk = SubResource("Resource_lhagd")
 def = SubResource("Resource_35b3r")

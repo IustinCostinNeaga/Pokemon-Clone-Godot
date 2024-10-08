@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu3ns1sy81tbi"
-path="res://.godot/imported/BackGround.jpg-a6d0e44f02ae2142142e2c5977702ede.ctex"
+uid="uid://cwco4ryr4rr45"
+path="res://.godot/imported/char.png-fa68f6b5bec51d64065cc6493d0e4396.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BackGround.jpg"
-dest_files=["res://.godot/imported/BackGround.jpg-a6d0e44f02ae2142142e2c5977702ede.ctex"]
+source_file="res://Scripts/Pokemons/PocketMonsters/Sprites/Front/char.png"
+dest_files=["res://.godot/imported/char.png-fa68f6b5bec51d64065cc6493d0e4396.ctex"]
 
 [params]
 

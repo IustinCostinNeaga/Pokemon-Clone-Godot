@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3ou5vs7s04qa"
-path="res://.godot/imported/squi.png-ae7e589b748da2a93c3ddcbd754870e5.ctex"
+uid="uid://mxm0jb6d01ef"
+path="res://.godot/imported/squir_back.png-33cf0145a2641b7d91fe249b9f07ce19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/Pokemons/PocketMonsters/Sprites/squi.png"
-dest_files=["res://.godot/imported/squi.png-ae7e589b748da2a93c3ddcbd754870e5.ctex"]
+source_file="res://Scripts/Pokemons/PocketMonsters/Sprites/Back/squir_back.png"
+dest_files=["res://.godot/imported/squir_back.png-33cf0145a2641b7d91fe249b9f07ce19.ctex"]
 
 [params]
 

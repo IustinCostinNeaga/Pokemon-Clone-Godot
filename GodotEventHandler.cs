@@ -15,7 +15,7 @@ public partial class GodotEventHandler : Node2D
 		worldMap = ResourceLoader.Load<PackedScene>("res://Scenes/OverWorld.tscn").Instantiate<WorldMap>();
 		worldMap.Connect(Node.SignalName.Ready, new Callable(this, nameof(OnWorldReady)));
 		battleScreen = ResourceLoader.Load<PackedScene>("res://Scenes/BattleScreen.tscn").Instantiate<BattleScreen>();
-		battleScreen.Connect(Node.SignalName.Ready, new Callable(this, nameof(OnBattleReady)));
+		// battleScreen.Connect(Node.SignalName.Ready, new Callable(this, nameof(OnBattleReady)));
 		CallDeferred(Node.MethodName.AddSibling, worldMap);
 		CallDeferred(Node.MethodName.AddSibling, battleScreen);
 		battleScreen.Hide();
