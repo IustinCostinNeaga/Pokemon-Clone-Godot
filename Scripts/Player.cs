@@ -8,7 +8,7 @@ public partial class Player : Node2D {
     [Export] private Pokemon yourPokemon;
 
     [Signal]
-    public delegate void ChangeToBattleSceneEventHandler(); 
+    public delegate void ChangeToBattleSceneEventHandler();
 
     private Vector2 direction = Vector2.Zero;
     private Vector2 currentPosition;
@@ -29,8 +29,8 @@ public partial class Player : Node2D {
         var eventHandler = GetTree().Root.GetNode<GodotEventHandler>("StartingScene");
         eventHandler.Connect(GodotEventHandler.SignalName.ShowBattleScreen, new Callable(this, nameof(StopMovement)));
         eventHandler.Connect(GodotEventHandler.SignalName.ShowWorldMap, new Callable(this, nameof(RestartMovement)));
-        
-        
+
+
         animationPlayer = GetNode<AnimationPlayer>("PgAnimations");
         animationPlayer.Play("move_down");
         camera = GetNode<Camera2D>("PgCamera");
@@ -41,8 +41,12 @@ public partial class Player : Node2D {
 
     public override void _Process(double delta) {
         if (movementIsEnabled) {
-            if (!isMoving) { HandleInput(); }
-            else { HandleMovement(delta); }
+            if (!isMoving) {
+                HandleInput();
+            }
+            else {
+                HandleMovement(delta);
+            }
         }
     }
 
@@ -54,6 +58,13 @@ public partial class Player : Node2D {
             isMoving = false;
             percentMoved = 0;
             direction = Vector2.Zero;
+
+            if (tilemap.GetCellTileData(tilemap.LocalToMap((Position))).GetCustomData("PokemonCanSpawn").AsBool()) {
+                var number = new Random().Next(0, 15);
+                if (number < 15) {
+                    EmitSignal(SignalName.ChangeToBattleScene, yourPokemon);
+                }
+            }
         }
         else {
             Position = currentPosition + (nextPosition - currentPosition) * percentMoved;
@@ -110,13 +121,6 @@ public partial class Player : Node2D {
         if (nextTile.GetCustomData("Walkable").AsBool()) {
             this.nextPosition = tilemap.MapToLocal(nextPosition);
         }
-
-        if (nextTile.GetCustomData("PokemonCanSpawn").AsBool()) {
-            var number = new Random().Next(0, 15);
-            if (number < 15) {
-                EmitSignal(SignalName.ChangeToBattleScene, yourPokemon);
-            }
-        }
     }
 
     private void StopMovement() {
@@ -126,8 +130,5 @@ public partial class Player : Node2D {
     private void RestartMovement() {
         movementIsEnabled = true;
         camera.MakeCurrent();
-        
     }
-    
-    
 }

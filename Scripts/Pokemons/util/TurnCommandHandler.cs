@@ -4,19 +4,14 @@ using PokemonMoltoBrutto.Pokemons.util.TurnCommandHandlers;
 
 namespace PokemonMoltoBrutto.Pokemons.util;
 
-public interface TurnCommandHandler
-{
+public interface TurnCommandHandler {
     void send(TurnCommand command);
 }
 
-public class Turn: TurnCommandHandler
-{
-    public void send(TurnCommand command)
-    {
-        switch (command)
-        {
-            case Damage damage:
-            {
+public class Turn : TurnCommandHandler {
+    public void send(TurnCommand command) {
+        switch (command) {
+            case Damage damage: {
                 new DamageHandler().handle(damage);
                 break;
             }
@@ -32,7 +27,7 @@ public class Turn: TurnCommandHandler
                 new StatusChangeHandler().handle(statusChange);
                 break;
             }
-            default:  throw new ArgumentOutOfRangeException(nameof(command));
+            default: throw new ArgumentOutOfRangeException(nameof(command));
         }
     }
 }

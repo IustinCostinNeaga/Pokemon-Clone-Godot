@@ -1,69 +1,67 @@
 using Godot;
 using System;
 
-public partial class BattleScreen : Control
-{
-	private Pokemon yourPokemon;
-	private Pokemon enemyPokemon;
-	
-	private TextureRect yourPokemonSprite;
-	private TextureRect enemyPokemonSprite;
+public partial class BattleScreen : Control {
+    private Pokemon yourPokemon;
+    private Pokemon enemyPokemon;
 
-	private Label yourPokemonName;
-	private Label yourPokemonHp;
-	private Label enemyPokemonName;
-	private Label enemyPokemonHp;
-	private Camera2D camera;
+    private TextureRect yourPokemonSprite;
+    private TextureRect enemyPokemonSprite;
 
-	public void instantiate(Pokemon pokemon)
-	{
-		yourPokemon = pokemon;
-		int number = new Random().Next(3);
-		switch (number)
-		{
-			case 0: enemyPokemon = ResourceLoader.Load<Pokemon>("res://Scripts/Pokemons/PocketMonsters/charmander.tres");break;
-			case 1: enemyPokemon = ResourceLoader.Load<Pokemon>("res://Scripts/Pokemons/PocketMonsters/bulbasaur.tres");break;
-			case 2: enemyPokemon = ResourceLoader.Load<Pokemon>("res://Scripts/Pokemons/PocketMonsters/squirtle.tres");break;
-		}
-		
-		yourPokemonSprite.Texture = yourPokemon.backSprite;
-		enemyPokemonSprite.Texture = enemyPokemon.sprite;
+    private Label yourPokemonName;
+    private Label yourPokemonHp;
+    private Label enemyPokemonName;
+    private Label enemyPokemonHp;
+    private Camera2D camera;
 
-		yourPokemonName.Text = yourPokemon.name;
-		yourPokemonHp.Text = "HP: " + yourPokemon.hp;
-		enemyPokemonName.Text = enemyPokemon.name;
-		enemyPokemonHp.Text = "HP: " + enemyPokemon.hp;
-		
-		camera.MakeCurrent();
-	}
+    public void instantiate(Pokemon pokemon) {
+        yourPokemon = pokemon;
+        int number = new Random().Next(3);
+        switch (number) {
+            case 0:
+                enemyPokemon = ResourceLoader.Load<Pokemon>("res://Scripts/Pokemons/PocketMonsters/charmander.tres");
+                break;
+            case 1:
+                enemyPokemon = ResourceLoader.Load<Pokemon>("res://Scripts/Pokemons/PocketMonsters/bulbasaur.tres");
+                break;
+            case 2:
+                enemyPokemon = ResourceLoader.Load<Pokemon>("res://Scripts/Pokemons/PocketMonsters/squirtle.tres");
+                break;
+        }
 
-	public override void _Ready()
-	{
-		var eventHandler = GetTree().Root.GetNode<GodotEventHandler>("StartingScene");
-		eventHandler.Connect(GodotEventHandler.SignalName.ShowBattleScreen, new Callable(this, nameof(UnHideBattle)));
-		eventHandler.Connect(GodotEventHandler.SignalName.ShowWorldMap, new Callable(this, nameof(HideBattle)));
-		
-		yourPokemonSprite = GetNode<TextureRect>( "YourPokemonSide/Sprites/PokemonSprite");
-		enemyPokemonSprite = GetNode<TextureRect>("EnemyPokemonSide/Sprites/PokemonSprite");
-		
-		yourPokemonName = GetNode<Label>("YourPokemonSide/PokemonStats/Texts/Name");
-		yourPokemonHp = GetNode<Label>("YourPokemonSide/PokemonStats/Texts/HP");
-		enemyPokemonName = GetNode<Label>("EnemyPokemonSide/PokemonStats/Texts/Name");
-		enemyPokemonHp = GetNode<Label>("EnemyPokemonSide/PokemonStats/Texts/HP");
-		
-		camera = GetNode<Camera2D>("Camera");
-	}
-	
+        yourPokemonSprite.Texture = yourPokemon.backSprite;
+        enemyPokemonSprite.Texture = enemyPokemon.sprite;
 
-	public void HideBattle()
-	{
-		Hide();
-	}
+        yourPokemonName.Text = yourPokemon.name;
+        yourPokemonHp.Text = "HP: " + yourPokemon.hp;
+        enemyPokemonName.Text = enemyPokemon.name;
+        enemyPokemonHp.Text = "HP: " + enemyPokemon.hp;
 
-	public void UnHideBattle()
-	{
-		Show();
-	}
-	
-	
+        camera.MakeCurrent();
+    }
+
+    public override void _Ready() {
+        var eventHandler = GetTree().Root.GetNode<GodotEventHandler>("StartingScene");
+        eventHandler.Connect(GodotEventHandler.SignalName.ShowBattleScreen, new Callable(this, nameof(UnHideBattle)));
+        eventHandler.Connect(GodotEventHandler.SignalName.ShowWorldMap, new Callable(this, nameof(HideBattle)));
+
+        yourPokemonSprite = GetNode<TextureRect>("YourPokemonSide/Sprites/PokemonSprite");
+        enemyPokemonSprite = GetNode<TextureRect>("EnemyPokemonSide/Sprites/PokemonSprite");
+
+        yourPokemonName = GetNode<Label>("YourPokemonSide/PokemonStats/Texts/Name");
+        yourPokemonHp = GetNode<Label>("YourPokemonSide/PokemonStats/Texts/HP");
+        enemyPokemonName = GetNode<Label>("EnemyPokemonSide/PokemonStats/Texts/Name");
+        enemyPokemonHp = GetNode<Label>("EnemyPokemonSide/PokemonStats/Texts/HP");
+
+        camera = GetNode<Camera2D>("Camera");
+    }
+
+
+    public void HideBattle() {
+        Hide();
+    }
+
+    public void UnHideBattle() {
+        Show();
+    }
 }

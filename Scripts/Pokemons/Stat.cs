@@ -1,8 +1,7 @@
 using Godot;
 
 [GlobalClass]
-public partial class Stat : Resource
-{
+public partial class Stat : Resource {
     [Export] private string stat;
     [Export] private int baseAmount;
     private int actual;

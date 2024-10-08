@@ -3,7 +3,6 @@ using Godot;
 namespace PokemonMoltoBrutto.Pokemons.MoveCommands;
 
 [GlobalClass]
-public partial class DamageDealer : MoveCommand
-{
+public partial class DamageDealer : MoveCommand {
     [Export] private int damage;
 }
