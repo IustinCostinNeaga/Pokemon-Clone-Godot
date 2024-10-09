@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qyvnfevv54os"
-path="res://.godot/imported/Fight-Non-Pressed.png-9a9f0f32657f3fd5e03f796d8798427e.ctex"
+uid="uid://ct21u55yshxj1"
+path="res://.godot/imported/MoveButton.png-dc68852b0ae93d88b0d87a76d7e63fc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Buttons/FightButton/Fight-Non-Pressed.png"
-dest_files=["res://.godot/imported/Fight-Non-Pressed.png-9a9f0f32657f3fd5e03f796d8798427e.ctex"]
+source_file="res://Images/Buttons/MoveButtons/MoveButton.png"
+dest_files=["res://.godot/imported/MoveButton.png-dc68852b0ae93d88b0d87a76d7e63fc5.ctex"]
 
 [params]
 

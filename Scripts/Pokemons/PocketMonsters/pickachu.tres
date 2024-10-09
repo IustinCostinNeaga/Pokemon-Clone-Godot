@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=10 format=3 uid="uid://dg77nah6gaumr"]
+[gd_resource type="Resource" script_class="Pokemon" load_steps=10 format=3 uid="uid://dg77nah6gaumr"]
 
 [ext_resource type="Script" path="res://Scripts/Pokemons/Stat.cs" id="1_bo6os"]
 [ext_resource type="Texture2D" uid="uid://dhm3mhg8vc6qg" path="res://Scripts/Pokemons/PocketMonsters/Sprites/Back/pick_back.png" id="2_h8mye"]

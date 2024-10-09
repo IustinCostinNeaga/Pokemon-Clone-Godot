@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/BattleScreen.cs" id="1_f0tmu"]
 [ext_resource type="Texture2D" uid="uid://brhivbi12s8xh" path="res://Images/BattleBackground.png" id="1_rlqem"]
 [ext_resource type="Texture2D" uid="uid://4xlwlyi8k8rj" path="res://Images/pokemonBar.png" id="2_qun2y"]
-[ext_resource type="Texture2D" uid="uid://qyvnfevv54os" path="res://Images/Buttons/FightButton/Fight-Non-Pressed.png" id="3_7j37c"]
-[ext_resource type="Texture2D" uid="uid://cnxha3ufiwoli" path="res://Images/Buttons/FightButton/Fight-Pressed.png" id="4_retov"]
+[ext_resource type="Texture2D" uid="uid://daknmc3kwkxb0" path="res://Images/Buttons/FightButton/FightButton-non-pressed.png" id="4_feksa"]
 [ext_resource type="Texture2D" uid="uid://dohir2sll52vh" path="res://Images/Buttons/RunButton/RunButton-non-pressed.png" id="5_57sgv"]
+[ext_resource type="Texture2D" uid="uid://bms3mq71qeylm" path="res://Images/Buttons/FightButton/FightButton-pressed.png" id="5_x2tki"]
 [ext_resource type="Texture2D" uid="uid://dx4tuo87jovps" path="res://Images/Buttons/RunButton/RunButton-pressed.png" id="6_f6y68"]
 
 [node name="BattleScreen" type="Control"]
@@ -56,9 +56,11 @@ offset_top = 10.0
 offset_right = -30.0
 offset_bottom = 35.0
 grow_horizontal = 0
-texture_normal = ExtResource("3_7j37c")
-texture_pressed = ExtResource("4_retov")
-texture_hover = ExtResource("4_retov")
+texture_normal = ExtResource("4_feksa")
+texture_pressed = ExtResource("5_x2tki")
+texture_hover = ExtResource("5_x2tki")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Bag" type="TextureButton" parent="Buttons"]
 layout_mode = 1

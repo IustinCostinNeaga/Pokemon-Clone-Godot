@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnkmk6smfiixh"]
+
+[ext_resource type="Texture2D" uid="uid://ct21u55yshxj1" path="res://Images/Buttons/MoveButtons/MoveButton.png" id="1_sqbbb"]
+
+[node name="Move1" type="TextureButton"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -130.0
+offset_top = 10.0
+offset_right = -30.0
+offset_bottom = 35.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_sqbbb")
+ignore_texture_size = true
+stretch_mode = 0
