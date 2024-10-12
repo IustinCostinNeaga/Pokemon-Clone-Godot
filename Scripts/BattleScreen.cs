@@ -56,6 +56,13 @@ public partial class BattleScreen : Control {
         camera = GetNode<Camera2D>("Camera");
     }
 
+    public void ChangeToMoves() {
+        
+    }
+
+    public void ChangeToFight() {
+        
+    }
 
     public void HideBattle() {
         Hide();

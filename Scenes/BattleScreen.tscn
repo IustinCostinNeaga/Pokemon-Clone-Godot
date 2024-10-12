@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpoidhpugkavw"]
+[gd_scene load_steps=10 format=3 uid="uid://dpoidhpugkavw"]
 
 [ext_resource type="Script" path="res://Scripts/BattleScreen.cs" id="1_f0tmu"]
 [ext_resource type="Texture2D" uid="uid://brhivbi12s8xh" path="res://Images/BattleBackground.png" id="1_rlqem"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bms3mq71qeylm" path="res://Images/Buttons/FightButton/FightButton-pressed.png" id="5_x2tki"]
 [ext_resource type="Texture2D" uid="uid://dx4tuo87jovps" path="res://Images/Buttons/RunButton/RunButton-pressed.png" id="6_f6y68"]
 [ext_resource type="PackedScene" uid="uid://dnkmk6smfiixh" path="res://moveButton.tscn" id="8_6bukg"]
-[ext_resource type="Texture2D" uid="uid://ct21u55yshxj1" path="res://Images/Buttons/MoveButtons/MoveButton.png" id="9_o31b0"]
 
 [sub_resource type="SystemFont" id="SystemFont_0lu37"]
 font_names = PackedStringArray("Comic Relief")
@@ -115,50 +114,52 @@ texture = ExtResource("2_qun2y")
 expand_mode = 3
 
 [node name="Move1" parent="FightButtons" instance=ExtResource("8_6bukg")]
-layout_mode = 0
-anchors_preset = 0
-
-[node name="Move2" type="TextureButton" parent="FightButtons"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -240.0
+anchor_bottom = 0.0
+offset_left = -130.0
 offset_top = 10.0
-offset_right = -140.0
+offset_right = -30.0
 offset_bottom = 35.0
 grow_horizontal = 0
-texture_normal = ExtResource("9_o31b0")
-ignore_texture_size = true
-stretch_mode = 0
+grow_vertical = 1
 
-[node name="Move3" type="TextureButton" parent="FightButtons"]
+[node name="Move4" parent="FightButtons" instance=ExtResource("8_6bukg")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
-anchor_right = 1.0
+anchor_bottom = 0.0
 offset_left = -130.0
 offset_top = 39.0
 offset_right = -30.0
 offset_bottom = 64.0
 grow_horizontal = 0
-texture_normal = ExtResource("9_o31b0")
-ignore_texture_size = true
-stretch_mode = 0
+grow_vertical = 1
 
-[node name="Move4" type="TextureButton" parent="FightButtons"]
+[node name="Move2" parent="FightButtons" instance=ExtResource("8_6bukg")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
-anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -240.0
+offset_top = 10.0
+offset_right = -140.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="Move3" parent="FightButtons" instance=ExtResource("8_6bukg")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
 offset_left = -240.0
 offset_top = 39.0
 offset_right = -140.0
 offset_bottom = 64.0
 grow_horizontal = 0
-texture_normal = ExtResource("9_o31b0")
-ignore_texture_size = true
-stretch_mode = 0
+grow_vertical = 1
 
 [node name="YourPokemonSide" type="HBoxContainer" parent="."]
 layout_mode = 0
